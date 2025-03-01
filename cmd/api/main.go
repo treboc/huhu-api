@@ -67,10 +67,7 @@ func run() error {
 		w.Write([]byte("Hello from the Jokes API!"))
 	})
 
-	r.Get("/healthz", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("OK"))
-	})
+	r.Get("/healthz", handler.HandleHealthz)
 
 	jokeRouter := chi.NewRouter()
 	jokeRouter.Get("/", jokeHandler.ListJokes)
