@@ -70,7 +70,7 @@ build:
 run: load-env
 	@
 
-## run/live: run in development with hot reloading
-.PHONY: run/live
-run/live: load-env
-	@air -c .air.toml
+## dev: run in development with hot reloading
+.PHONY: dev
+dev: load-env
+	@wgo run ${main_package_path}
